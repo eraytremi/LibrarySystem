@@ -1,0 +1,25 @@
+﻿@model LibrarySystem.Models.LoginModel
+<div class="row">
+    <form asp-action="Login" asp-controller="Login" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @ViewBag.Message
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control"><br><br>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                @Html.PasswordFor(model => model.Password , new {@class="form-control", placeholder="Password"})
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Giris Yap" class="btn btn-primary my-2">
+            </div>
+
+        }
+
+
+    </form>
+</div>

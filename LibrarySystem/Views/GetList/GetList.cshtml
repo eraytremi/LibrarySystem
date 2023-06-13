@@ -1,0 +1,42 @@
+﻿﻿@using LibrarySystem.Models
+@model IEnumerable<LibrarySystem.Models.BookListModel>
+
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <form asp-action="GetList" asp-controller="GetList" method="post">
+            <div class="form-group">
+                <label for="Search" name="Kitap Ara" class="control-label"></label>
+                <input value="@ViewData["Filter"]" type="text" name="Search">
+                <br><br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ara" class="btn btn-primary">
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<br />
+<br />
+<table>
+    <thead>
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Yazar</th>
+        <th>Kitap Al</th>
+    </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Author</td>
+            @*<td>@Html.ActionLink("Kitabı Al","GetBooksToProfile","Home",new{style="color:red"})</td>*@
+        </tr>
+        </tbody>
+    }
+</table>
+
+

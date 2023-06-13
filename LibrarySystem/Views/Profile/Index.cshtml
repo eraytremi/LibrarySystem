@@ -1,0 +1,9 @@
+﻿﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model LibrarySystem.Models.LoginModel
+
+
+<h4> Hoşgeldin @HttpContextAccessor.HttpContext.Session.GetString("Username")</h4>
+
+
+@*@await Html.PartialAsync("GetBooksToProfile")*@

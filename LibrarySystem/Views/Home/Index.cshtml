@@ -1,0 +1,22 @@
+﻿﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@if (Context.Session.GetString("Username") != null)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome @HttpContextAccessor.HttpContext.Session.GetString("Username") </h1>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h3 class="display-7">Welcome to Library System.Please login to enter the system. </h3>
+
+    </div>
+
+}
+
